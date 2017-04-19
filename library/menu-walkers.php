@@ -14,8 +14,13 @@
 
  	function start_lvl( &$output, $depth = 0, $args = array() ) {
  			$indent = str_repeat("\t", $depth);
-      $output .= "\n$indent<ul class=\"dropdown menu vertical\" data-dropdown-menu>\n";
+      $output .= "\n$indent<div class=\"main-submenu\"><div class=\"row align-right align-middle\"><ul class=\"main-nav columns\">\n";
  	}
+
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+          $indent = str_repeat("\t", $depth);
+          $output .= "$indent</ul></div></div>\n";
+  }
  }
 
 

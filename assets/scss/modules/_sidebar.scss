@@ -1,10 +1,39 @@
 .sidebar {
   @include breakpoint(small) {
-    @include grid-column(12);
+    @include flex-grid-column(12);
   }
 
   @include breakpoint(medium) {
-    @include grid-column(4);
+    @include flex-grid-column(4);
     margin-top: 1rem;
   }
+
+  ul {
+    list-style-type: none;
+
+    li a {
+      font-size: 1.2rem;
+      color: $primary-color;
+    }
+
+    > li {
+      line-height: 3rem;
+    }
+
+    li.widget_subpages_current_page {
+      a {
+        border-bottom: 2px solid $primary-color;
+        font-weight:bold;
+      }
+    }
+  }
 }
+
+   ul > ul {
+    > li {
+      line-height:1.8rem !important;
+      a {
+        font-size:1rem !important;
+      }
+    }
+  }

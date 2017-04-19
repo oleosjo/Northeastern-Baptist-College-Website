@@ -1,0 +1,110 @@
+
+@keyframes wiggle {
+    25% {transform: rotateZ(6deg);}
+    75% {transform: rotateZ(-6deg);}
+}
+
+#student-portal-menu {
+  background:$light-gray;
+  width:100%;
+  padding-top:22px;
+  height: 158px;
+
+
+  .portal-button a img, .portal-button a .portal-label {
+    opacity:0.7;
+    transition: all 0.2s ease-in;
+    display:block;
+  }
+
+  .portal-button a {
+
+    &:hover img {
+      animation-name: wiggle;
+      animation-duration: 0.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+      opacity: 1;
+      // transform: scale(1.2);
+    }
+
+    &:hover .portal-label {
+      opacity:1;
+    }
+
+  }
+
+
+
+  .portal-label {
+    opacity:0.7;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1rem;
+    font-weight: bold;
+    font-size: 0.7rem;
+
+  }
+}
+
+
+.main-submenu {
+  position:absolute;
+  left:0;
+  z-index:900;
+  background: $dark-gray;
+  opacity:0;
+  visibility:hidden;
+  transform: translateY(40px);
+  width:100%;
+
+
+  &:after, &:before {
+    z-index:-50;
+    background: $dark-gray;
+    position:absolute;
+    content: " ";
+    width:3000px;
+    height:100%;
+    top:0;
+  }
+
+  &:after {
+    left:100%;
+  }
+
+  &:before {
+    right:100%;
+  }
+
+
+  transition: all 0.3s ease-in-out;
+
+  ul {
+    list-style-type: none;
+    padding:1.6rem 0;
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    align-items: stretch;
+
+    // transform: translateX(-2rem);
+
+    li {
+
+      flex: 0 0 33%;
+      box-sizing:border-box;
+
+      a {
+        white-space: nowrap;
+        text-transform: uppercase;
+        color:white;
+        line-height:3rem;
+      }
+    }
+  }
+}

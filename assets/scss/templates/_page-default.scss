@@ -1,15 +1,39 @@
 #page {
-  @include grid-row();
-  margin-top: 3rem;
+  @include flex-grid-row();
 
   .main-content {
+
     @include breakpoint(small) {
-      @include grid-column(12);
+      @include flex-grid-column(12);
     }
 
     @include breakpoint(medium) {
-      @include grid-column(8);
+      border-left: 5px solid $lighter-gray;
+      @include flex-grid-column(8);
     }
   }
 
+  .entry-content {
+    padding:2rem;
+  }
+
 }
+
+  .breadcrumb {
+    text-transform: uppercase;
+    color: $dark-gray;
+    opacity: 0.9;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+
+  }
+
+  .page-divider {
+    background: $lighter-gray;
+    padding:0.5rem 0;
+  }
+
+  .page-header {
+    height: 110px;
+    padding-left: 1rem;
+  }

@@ -1,32 +1,106 @@
+#masthead {
+  background:$dark-gray;
+}
+
+.inline-svg {
+  height: 0;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.mobile-logo {
+  background: $primary-color;
+
+}
+
+#logo {
+  background: $primary-color;
+
+  @include breakpoint(medium) {
+
+  height:100%;
+  position:relative;
+  transform: translateY(21px);
+  z-index:1000;
+
+  img {
+    transform: translateY(-6px);
+  }
+
+  .flag-point {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    .st0 {
+      color: $primary-color;
+      opacity:1;
+    }
+  }
+
+  &:before {
+    position:absolute;
+    content:" ";
+    z-index:20;
+    top:-300px;
+    width:100%;
+    left:0px;
+    height:300px;
+    background: $primary-color;
+
+  }
+
+  }
+}
+
+#site-navigation .dropdown {
+  position:relative;
+  height: 100%;
+  display:table;
+
+  li {
+
+    height: 100%;
+    a {
+      margin-bottom: 3px;
+    }
+
+    &:hover > a {
+      border-bottom: 3px solid $light-gray;
+      margin-bottom:0;
+    }
+  }
+
+  .menu-item:hover .main-submenu, .menu-item.menu-active .main-submenu {
+    visibility:visible;
+    opacity:0.9;
+  }
+
+}
+
 .top-bar {
 
-  .menu .home a {
-    font-size: 1rem;
-    color: #B9B9B9;
+  &.main-navigation {
+    height:115px;
   }
 
-  .menu a {
-    height: 45px;
-    line-height: 45px;
-    color: #e6e6e6;
-    padding-top: 0;
-    padding-bottom: 0;
+  .menu > li:not(.menu-text) > a {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     font-weight: bold;
-    font-size: 0.8rem;
-
-    &:hover:not(.button) {
-      background-color: #2a2a2a;
-    }
   }
 
-  .menu>li:not(.menu-text)>a {
-    padding: 1rem;
-  }
-
-  .menu li:not(:last-child) {
-    @include breakpoint(medium) {
-      border-right: 1px solid #4e4e4e;
-    }
+  .menu > li {
+    height:100%;
   }
 
   .dropdown.menu .submenu {
@@ -46,6 +120,17 @@
 
 }
 
+a.student-portal-button {
+  font-size: 0.8rem;
+  color: $dark-gray;
+
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    color:white;
+  }
+}
+
 .vertical &.menu {
   padding: 1rem;
 }
@@ -55,8 +140,31 @@
     display: none;
   }
 
-  .title a {
-    font-size: 1rem;
-    color: #B9B9B9;
+  .menu {
+    display:table;
   }
+
+  background:$light-gray;
 }
+
+.student-portal {
+  background:$light-gray;
+  position:relative;
+
+  .menu-item {
+    background:$light-gray;
+  }
+
+}
+
+#wrapper {
+  transition: transform 0.5s ease-in-out;
+  transform: translateY(-158px);
+}
+
+#wrapper.show-student-portal {
+  transform: translateY(0);
+}
+
+
+

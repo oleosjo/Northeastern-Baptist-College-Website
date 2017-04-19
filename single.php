@@ -8,25 +8,39 @@
  */
 
 get_header(); ?>
+ <div class="row align-middle page-header">
+  <div class="large-offset-4 columns">
+    <h3 class="entry-title uppercase no-margin"><?php the_title(); ?></h3>
+  </div>
+ </div>
+ <div class="page-divider">
+  <div class="row">
+    <div class="large-offset-4 columns breadcrumb" typeof="BreadcrumbList" vocab="http://schema.org/">
+      <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+    </div>
+  </div>
+ </div>
+<div id="page" role="main">
 
-<div id="single-post" role="main">
+<aside class="sidebar show-for-large">
+	<?php do_action( 'foundationpress_before_sidebar' ); ?>
+  	<?php dynamic_sidebar( 'blog-sidebar-widgets' ); ?>
+	<?php do_action( 'foundationpress_after_sidebar' ); ?>
+</aside>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+	<article <?php post_class('main-content blogpost-entry') ?> id="post-<?php the_ID(); ?>">
 		<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
 			<?php foundationpress_entry_meta(); ?>
 		</header>
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 		<div class="entry-content">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="row">
-				<div class="column">
+
 					<?php the_post_thumbnail( '', array('class' => 'th') ); ?>
-				</div>
-			</div>
+
 		<?php endif; ?>
 
 		<?php the_content(); ?>
@@ -42,6 +56,5 @@ get_header(); ?>
 <?php endwhile;?>
 
 <?php do_action( 'foundationpress_after_content' ); ?>
-<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

@@ -11,6 +11,8 @@
 register_nav_menus(array(
 	'top-bar-r' => 'Right Top Bar',
 	'mobile-nav' => 'Mobile',
+    'footer-menu-1' => 'Quick Links',
+    'footer-menu-2' => 'Information For',
 ));
 
 
@@ -23,15 +25,46 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 	    wp_nav_menu(array(
         'container' => false,                           // Remove nav container
         'menu_class' => 'dropdown menu',           			// Adding custom nav class
-				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-medium" data-dropdown-menu>%3$s</ul>',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-medium">%3$s</ul>',
         'theme_location' => 'top-bar-r',                // Where it's located in the theme
-        'depth' => 3,                                   // Limit the depth of the nav
+        'depth' => 2,                                   // Limit the depth of the nav
         'fallback_cb' => false,                         // Fallback function (see below)
         'walker' => new Foundationpress_Top_Bar_Walker(),
 	    ));
 	}
 }
 
+/**
+ * Footer Nav 1
+ * http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'footer_menu_1' ) ) {
+    function footer_menu_1() {
+        wp_nav_menu(array(
+        'container' => false,                           // Remove nav container
+        'items_wrap'     => '<ul id="%1$s" class="footer-menu">%3$s</ul>',
+        'theme_location' => 'footer-menu-1',                // Where it's located in the theme
+        'depth' => 2,                                   // Limit the depth of the nav
+        'fallback_cb' => false,                         // Fallback function (see below)
+        ));
+    }
+}
+
+/**
+ * Footer Nav 2
+ * http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'footer_menu_2' ) ) {
+    function footer_menu_2() {
+        wp_nav_menu(array(
+        'container' => false,                           // Remove nav container
+        'items_wrap'     => '<ul id="%1$s" class="footer-menu">%3$s</ul>',
+        'theme_location' => 'footer-menu-2',                // Where it's located in the theme
+        'depth' => 2,                                   // Limit the depth of the nav
+        'fallback_cb' => false,                         // Fallback function (see below)
+        ));
+    }
+}
 
 /**
  * Mobile navigation - topbar (default) or offcanvas
@@ -45,6 +78,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 				'theme_location' => 'mobile-nav',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-small-only" data-accordion-menu>%3$s</ul>',
 				'fallback_cb'    => false,
+
         'walker' => new Foundationpress_Mobile_Walker(),
 	    ));
 	}

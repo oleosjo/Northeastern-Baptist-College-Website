@@ -1,18 +1,113 @@
+
+@keyframes fadein {
+    to { opacity:1; }
+}
+
+@keyframes drawcircle {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
 #footer-container {
 	max-width: 100%;
 	width: 100%;
 	margin: 0 auto;
 	border-top: 1px solid #ccc;
 	margin-top: rem-calc(60);
+	position:absolute;
+
+	background:$light-gray;
 
 	#footer {
-		@include grid-row();
-		padding: rem-calc(30) 0;
+		padding: 4.875rem 0;
+
+		.nebc-seal {
+			opacity: 0.6;
+		}
+
+		h5 {
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			font-weight: bold;
+			font-size: 0.9rem;
+		}
+
+		.footer-menu {
+			li {
+				padding-left:0.5rem;
+			}
+			li a {
+				// text-transform: uppercase;
+				// letter-spacing: 3px;
+				font-size: 1rem;
+				line-height:2rem;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
 
 		ul {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
 		}
+
+		.address {
+			color: $primary-color;
+	    padding-left: 0.5rem;
+	    padding-top: 1rem;
+	    font-family: Arvo;
+	    font-size: 1.1rem;
+	    line-height: 1.5rem;
+		}
+
+		svg#footer-map {
+
+			.st3, .st1 {
+				// transition: all 0.5s linear;
+				opacity:0;
+			}
+
+			.st2 {
+			  stroke-dasharray: 1000;
+				stroke-dashoffset: 1000;
+			}
+
+			&.map-animation-finished {
+				.st3, .st1 {
+					opacity:1;
+				}
+
+				.st2 {
+					stroke-dashoffset: 0;
+				}
+			}
+
+			&.map-animation {
+
+				.st3 { // Star
+					animation: fadein 1s ease-in forwards;
+				}
+
+				.st2 { // Circle
+					animation: drawcircle 1s linear forwards;
+		      animation-delay: 1s;
+				}
+
+				.st1 { // Text
+					animation: fadein 2s ease-in forwards;
+					animation-delay: 1s;
+				}
+			}
+
+		}
+
 	}
 }

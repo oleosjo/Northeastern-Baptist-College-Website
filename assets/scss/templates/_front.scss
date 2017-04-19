@@ -1,211 +1,64 @@
 // Page header
 #front-hero {
-	.marketing {
-		@include grid-row();
-		max-width: 55rem;
+	background: $primary-color;
+
+	p {
+		padding:3rem;
+		color:white;
+		font-family: 'Arvo';
+		line-height:1.75rem;
 	}
 
-	@include breakpoint(small) {
-		background: url('../images/demo/hero-bg-foundation-6-small.svg') bottom center;
-		background-size: cover;
-		background-position: bottom;
-		padding: rem-calc(65%) 0;
-		margin: 0 0 rem-calc(32);
-		height: auto;
-		position: relative;
-		text-align: left;
-	}
+	.front-icon {
+		text-align: center;
 
-	@include breakpoint(medium) {
-		background: url('../images/demo/hero-bg-foundation-6-large.svg') bottom center;
-		background-size: cover;
-		background-position: center;
-		height: rem-calc(685);
-		margin: 0 0 rem-calc(72);
-	}
-
-	#watch {
-
-		@include breakpoint(small) {
-			@include grid-column(7);
-			@include grid-column-position(-5);
+		.icon {
+			width:75px;
+			height:75px;
+			margin-bottom:1em;
 		}
 
-		@include breakpoint(medium) {
-			@include grid-column(12);
-			@include grid-column-position(0);
-		}
-
-		section {
-			display: inline;
-		}
-
-		a {
-			color: #B4C9D1;
-			cursor: pointer;
-			font-weight: 400;
-			margin-right: rem-calc(20);
-		}
-
-		a:hover {
-			color: #fff;
-		}
-
-		#stargazers {
-			:before {
-				content: "\f09b";
-				font-family: FontAwesome;
-				font-style: normal;
-				font-weight: normal;
-				text-decoration: inherit;
-				color: #B4C9D1;
-				margin-right: rem-calc(8);
-			}
-		}
-
-		#twitter {
-			:before {
-				content: "\f099";
-				font-family: FontAwesome;
-				font-style: normal;
-				font-weight: normal;
-				text-decoration: inherit;
-				color: #B4C9D1;
-				margin-right: rem-calc(8);
-			}
+		.icon-text {
+			color:white;
+			text-transform: uppercase;
 		}
 
 	}
-
-	.tagline {
-
-		@include breakpoint(small) {
-			@include grid-column(8);
-		}
-
-		@include breakpoint(medium) {
-			@include grid-column(5);
-			padding-top: 6rem;
-		}
-
-	}
-
-	h1 {
-		color: #fff;
-		font-weight: 500;
-
-		@include breakpoint(small) {
-			font-size: 2.2rem;
-		}
-
-		@include breakpoint(medium) {
-			font-size: 2.875rem;
-		}
-
-	}
-
-	h4 {
-		color: #fefefe;
-		font-weight: 300;
-		font-size: 1.3125rem;
-	}
-
-	.download { margin-top: rem-calc(20); }
-
 }
 
-// Intro
-.intro {
-	@include grid-row();
+#wrapper {
+	background: transparent;
+}
 
-	.fp-intro {
+.front-buttons {
+	padding:2rem;
 
-		@include breakpoint(small) {
-			@include grid-column(12);
-		}
+	.columns:first-of-type {
+		border-right: 1px solid $light-gray;
+	}
 
-		@include breakpoint(medium) {
-			@include grid-column(10);
-			@include grid-column-offset(1);
+	.button {
+		padding:2rem 4rem;
+		background: lighten(complement($primary-color), 20%);
+		margin:2rem auto;
+		font-family: Arvo;
+		font-size:2rem;
 
-			h2 {
-				font-weight: 300;
-				margin-bottom: 1.5rem;
-			}
+		transition: all 0.4s ease-in-out;
 
-			h4 {
-				font-size: 1.125rem;
-				line-height: 1.6;
-				color: #777;
-				margin-bottom: 2rem;
-			}
-
+		&:hover {
+			background: lighten(complement($primary-color), 30%);
+			transform: scale(1.05)
 		}
 	}
 }
 
-// Section divider
-.section-divider {
-	@include grid-row();
-
-	hr {
-		@include grid-column(12);
-		@extend .dotted;
-		box-sizing: border-box;
-	}
+.front-box {
+	height:400px;
+	background:$light-gray;
 }
 
-
-// Benefits
-.benefits {
-	@include grid-row();
-	text-align: center;
-
-	header {
-		@include grid-column(12);
-
-		h2 {
-			font-weight: 300;
-		}
-
-		h4 {
-			font-size: 1.125rem;
-			line-height: 1.6;
-			color: #777;
-		}
-	}
-
-	.semantic,
-	.responsive,
-	.customizable,
-	.professional {
-		@include breakpoint(small) {
-			@include grid-column(12);
-		}
-
-		@include breakpoint(medium) {
-			@include grid-column(3);
-		}
-
-		img {
-			padding: 1.25rem;
-    	margin: 1rem auto 0 auto;
-		}
-
-		h3 {
-			color: #0a0a0a;
-			font-weight: 300;
-			font-size: 1.75rem;
-		}
-
-		p { font-size: 0.9375rem; }
-
-	}
-
-	.why-foundation {
-		@include grid-row();
-		@include grid-column(12);
-		margin-top: 4rem;
-	}
-
+.parallax-window {
+	overflow: hidden;
+	height: 400px;
 }

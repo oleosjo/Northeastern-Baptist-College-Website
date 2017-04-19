@@ -1,10 +1,10 @@
 #page-full-width {
-  @include grid-row();
-  margin-top: 3rem;
+  @include flex-grid-row();
+  margin-top: 5rem;
 
   .main-content {
     @include breakpoint(small) {
-      @include grid-column(12);
+      @include flex-grid-column(12);
     }
 
   }

@@ -1,15 +1,13 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The main template file
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * e.g., it puts together the home page when no home.php file exists.
  *
- * If you'd like to further customize these archive views, you may create a
- * new template file for each one. For example, tag.php (Tag archives),
- * category.php (Category archives), author.php (Author archives), etc.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
  * @package WordPress
  * @subpackage FoundationPress
@@ -17,8 +15,24 @@
  */
 
 get_header(); ?>
-
+ <div class="row align-middle page-header">
+  <div class="large-offset-4 columns">
+    <h3 class="entry-title uppercase no-margin">NEBC News Archive</h3>
+  </div>
+ </div>
+ <div class="page-divider">
+  <div class="row">
+    <div class="large-offset-4 columns breadcrumb" typeof="BreadcrumbList" vocab="http://schema.org/">
+      <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+    </div>
+  </div>
+ </div>
 <div id="page" role="main">
+	<aside class="sidebar show-for-large">
+		<?php do_action( 'foundationpress_before_sidebar' ); ?>
+	  	<?php dynamic_sidebar( 'blog-sidebar-widgets' ); ?>
+		<?php do_action( 'foundationpress_after_sidebar' ); ?>
+	</aside>
 	<article class="main-content">
 	<?php if ( have_posts() ) : ?>
 
@@ -41,7 +55,6 @@ get_header(); ?>
 		<?php } ?>
 
 	</article>
-	<?php get_sidebar(); ?>
 
 </div>
 

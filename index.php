@@ -15,8 +15,24 @@
  */
 
 get_header(); ?>
-
+ <div class="row align-middle page-header">
+  <div class="large-offset-4 columns">
+    <h3 class="entry-title uppercase no-margin">NEBC News</h3>
+  </div>
+ </div>
+ <div class="page-divider">
+  <div class="row">
+    <div class="large-offset-4 columns breadcrumb" typeof="BreadcrumbList" vocab="http://schema.org/">
+      <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+    </div>
+  </div>
+ </div>
 <div id="page" role="main">
+	<aside class="sidebar show-for-large">
+		<?php do_action( 'foundationpress_before_sidebar' ); ?>
+	  	<?php dynamic_sidebar( 'blog-sidebar-widgets' ); ?>
+		<?php do_action( 'foundationpress_after_sidebar' ); ?>
+	</aside>
 	<article class="main-content">
 	<?php if ( have_posts() ) : ?>
 
@@ -39,7 +55,6 @@ get_header(); ?>
 		<?php } ?>
 
 	</article>
-	<?php get_sidebar(); ?>
 
 </div>
 
